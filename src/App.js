@@ -1,13 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-import 'antd/dist/antd.css';
+import React, { Component } from "react";
+import "antd/dist/antd.css";
+import Results from "./components/results";
+import Search from "./components/search";
+import Singleresult from "./components/singleresult";
 
-function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+    };
+  }
+  dataCallback = (d) => {
+    console.log(d);
+    this.setState({ data: d });
+  };
+  render() {
+    return (
+      <div className="App" style={{ textAlign: "center" }}>
+        <Search callbackFetch={this.dataCallback} />
+      </div>
+    );
+  }
 }
 
 export default App;
