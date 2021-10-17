@@ -27,23 +27,34 @@ class SingleResult extends Component {
 					}}
 				>
 					<div
-						className="pic"
 						style={{
-							width: "7rem",
-							height: "7rem",
-							margin: "1rem",
 							display: "flex",
+							flexDirection: "row",
 							alignItems: "center",
-							justifyContent: "center",
-							backgroundColor: "lightgray",
+							overflow: "hidden",
+							maxHeight: "10rem",
 						}}
 					>
-						<img src={this.props.thumbnail} alt="thumbnail"></img>
+						<div
+							className="pic"
+							style={{
+								width: "7rem",
+								height: "7rem",
+								margin: "1rem",
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								backgroundColor: "lightgray",
+							}}
+						>
+							<img src={this.props.thumbnail} alt="thumbnail"></img>
+						</div>
+						<div className="content" style={{ marginLeft: "1rem" }}>
+							<h3>{this.props.name}</h3>
+							<p>{this.props.artist}</p>
+						</div>
 					</div>
-					<div className="content" style={{ marginLeft: "1rem" }}>
-						<h3>{this.props.name}</h3>
-						<p>{this.props.artist}</p>
-					</div>
+
 					<div className="audio">
 						{this.state.buttonstate === true ? (
 							<audio
