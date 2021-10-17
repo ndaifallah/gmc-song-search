@@ -36,8 +36,8 @@ class Search extends Component {
 						);
 						let response = await serverCall.json();
 						this.props.loadingstate(false);
-						console.log(response.results);
 						this.props.callbackFetch(response.results);
+						this.setState({ search: "" });
 					}}
 				>
 					Search

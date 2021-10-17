@@ -32,10 +32,10 @@ class App extends Component {
 				}}
 			>
 				<Search
-					callbackFetch={this.dataCallback}
-					data={this.state.data}
-					load={this.state.loading}
 					loadingstate={this.loadingChangeState}
+					callbackFetch={this.dataCallback}
+					load={this.state.loading}
+					data={this.state.data}
 				/>
 				{this.state.loading ? (
 					<Spin />

@@ -23,6 +23,7 @@ class SingleResult extends Component {
 						margin: "1rem",
 						border: "1px lightgray solid",
 						width: 650,
+						justifyContent: "space-between",
 					}}
 				>
 					<div
@@ -45,7 +46,11 @@ class SingleResult extends Component {
 					</div>
 					<div className="audio">
 						{this.state.buttonstate === true ? (
-							<audio src={previewAudio} controls style={{ margin: "1rem" }} />
+							<audio
+								src={previewAudio}
+								controls
+								style={{ margin: "1rem", outline: "none" }}
+							/>
 						) : (
 							<div></div>
 						)}
@@ -75,4 +80,3 @@ class SingleResult extends Component {
 }
 
 export default SingleResult;
-// onClick={this.setState({ buttonstate: true })}
