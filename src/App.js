@@ -38,7 +38,7 @@ class App extends Component {
 					data={this.state.data}
 				/>
 				{this.state.loading ? (
-					<Spin />
+					<Spin style={{ marginTop: "5rem" }} size="large" />
 				) : (
 					<Result data={this.state.data} load={this.state.loading} />
 				)}
