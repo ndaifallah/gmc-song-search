@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 
-import Search from './components/search'
+import Search from './components/search';
+import Result from './components/result';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class App extends Component {
 
   dataCallback = (d) => {
     this.setState({
-      data: d
+      data: d.results
     })
   }
 
@@ -24,6 +25,10 @@ class App extends Component {
         textAlign: 'center',
       }}>
         <Search callbackFetch={this.dataCallback}/>
+        <br/>
+        <br/>
+        <br/>
+        <Result data={this.state.data}/>
       </div>
     );
   }
