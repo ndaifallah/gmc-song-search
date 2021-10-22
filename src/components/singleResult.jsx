@@ -16,7 +16,7 @@ class SingleResult extends Component {
             }}>
                 <Card
     hoverable
-    style={{ width: 240 }}
+    style={{ width: 200 }}
     cover={<img alt="example" src={this.props.img} />}
   > 
     <Meta title={this.props.song} description={this.props.name} />
