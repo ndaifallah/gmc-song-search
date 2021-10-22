@@ -9,13 +9,18 @@ import { Button, Radio } from 'antd';
 class Search extends Component {
     constructor(props) {
         super(props);
-        this.state = {content:""};
+        this.state = {
+          content:"",
+          loading:true
+        };
       }
     
       onClickSearch= async (e)=>{
           let value= this.state.content
+          this.setState.loading=true
           let response= await fetch(`https://itunes.apple.com/search?term=${value}`)
           let data= await response.json()
+          this.setState.loading=false
           this.props.datacallback(data.results)
       }
     render(){

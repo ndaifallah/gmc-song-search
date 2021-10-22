@@ -6,11 +6,17 @@ import Result from './components/result'
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {data:[]};
+    this.state = {
+      data:[],
+      loading:true
+    }
   }
 
   dataCallBack= (d)=>{
     this.setState({data: d})
+  }
+   Loading(load) {
+    this.setState({loading:load})
   }
   render(){
     return (
@@ -20,7 +26,7 @@ class App extends Component {
         width:"100vw"
       }} >
         <Search datacallback={this.dataCallBack} />
-        <Result data= {this.state.data}/>
+        <Result data= {this.state.data} loadstate={this.state.loading}/>
       </div>
     );
   }
