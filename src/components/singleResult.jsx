@@ -7,7 +7,9 @@ const { Meta } = Card
 class SingleResult extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+          
+        };
       }
     render(){
         return(
@@ -16,7 +18,10 @@ class SingleResult extends Component {
             }}>
                 <Card
     hoverable
-    style={{ width: 200 }}
+    style={{
+       width: 200,
+      //  height: 160
+     }}
     cover={<img alt="example" src={this.props.img} />}
   > 
     <Meta title={this.props.song} description={this.props.name} />
