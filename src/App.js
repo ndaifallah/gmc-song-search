@@ -28,6 +28,7 @@ class App extends Component {
         <br/>
         <br/>
         <Result data={this.state.data} />
+        
       </div>
     );
   }
