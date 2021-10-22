@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-class Singleresult extends Component {
-    render() {
-      return <div className="App"></div>;
-    }
+
+class SingleResult extends Component {
+  render() {
+    return <div></div>;
   }
-  
-  export default Singleresult;
+}
+
+export default SingleResult;
