@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Card } from 'antd';
+import SingleResult from './singleResult';
+
 
 class Result extends Component {
     
@@ -18,17 +19,7 @@ class Result extends Component {
                 flexWrap:"wrap",
                 padding: 20
             }}>
-                {this.props.data.map(el=><Card
-
-    hoverable
-    style={{ width: 200,
-        height: 300,
-    margin: 10,
-    }}
-    cover={<img src={el.artworkUrl100} />}
-  >
-    <Card.Meta title={el.trackName} description={el.artistName} />
-  </Card>)}
+                {this.props.data.map(el=> <SingleResult song={el.trackName} singer ={el.artistName} picture={el.artworkUrl100} />)}
             </div>
         )
     }
