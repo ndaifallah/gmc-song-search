@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
 import "antd/dist/antd.css";
 import "./App.css";
@@ -46,37 +45,6 @@ class App extends Component {
 			</div>
 		);
 	}
-=======
-import React, { Component } from 'react';
-import 'antd/dist/antd.css';
-
-import Search from './components/search'
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-    }
-  }
-
-  dataCallback = (d) => {
-    this.setState({
-      data: d
-    })
-  }
-
-  render(){
-    console.log(this.state);
-    return (
-      <div className="App" style={{
-        textAlign: 'center',
-      }}>
-        <Search callbackFetch={this.dataCallback}/>
-      </div>
-    );
-  }
->>>>>>> 799f2622fe4604424225cbe1d562f6711dfdc879
 }
 
 export default App;
