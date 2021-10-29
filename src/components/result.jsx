@@ -10,7 +10,11 @@ class Result extends Component {
             count: 12
         }
     }
-    
+   
+    toapp=(title)=>{
+        console.log('adding ',title);  
+        this.props.Resulttoapp(title);
+  }
     render() {
         
         return (
@@ -20,13 +24,16 @@ class Result extends Component {
                     flexDirection: "row",
                     flexWrap: "wrap",
                     padding: 20
+                    
                 }}>
-                    {this.props.data.map((el, idx) => idx < this.state.count ? <SingleResult song={el.trackName} singer={el.artistName} picture={el.artworkUrl100}/> : <></>)}
+                    {this.props.data.map((el, idx) => idx < this.state.count ? <SingleResult   son={el} addsong={ this.toapp} 
+                    song={el.trackName} singer={el.artistName} picture={el.artworkUrl100}/> : <></>)}
                 </div>
                 <Button type="link" style={{marginBottom: 50}} onClick={e => this.setState({count: this.state.count + 6})}>
                     Afficher plus de résultat
                 </Button>
-
+                
+              
             </div>
         )
     }
