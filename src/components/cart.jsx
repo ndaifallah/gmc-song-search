@@ -33,7 +33,12 @@ console.log(Total)
             <br />
             <br />
             <Button onClick ={e=>{
-                window.history.go("/checkout");
+                console.log(this.props);
+
+                //window.history.go("/checkout");
+                this.props.history.push("/checkout", {
+                    panier: this.props.panier
+                });
             }}> Checkout</Button>
         </div>);
     }
