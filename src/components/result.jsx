@@ -10,24 +10,30 @@ class Result extends Component {
             count: 12
         }
     }
+
+    addSong = (song) => {
+        console.log('Adding song: ', song)
+        this.props.addSong(song);
+    }
     
     render() {
         
         return (
-            <div>
+            <>
                 <div style={{
                     display: "flex",
                     flexDirection: "row",
                     flexWrap: "wrap",
-                    padding: 20
+                    padding: 20,
+                    width: "70%"
                 }}>
-                    {this.props.data.map((el, idx) => idx < this.state.count ? <SingleResult song={el.trackName} singer={el.artistName} picture={el.artworkUrl100}/> : <></>)}
+                    {this.props.data.map((el, idx) => idx < this.state.count ? <SingleResult price={el.trackPrice} song={el.trackName} singer={el.artistName} picture={el.artworkUrl100} addSong={this.addSong}/> : <></>)}
                 </div>
-                <Button type="link" style={{marginBottom: 50}} onClick={e => this.setState({count: this.state.count + 6})}>
+                {/* <Button type="link" style={{marginBottom: 50}} onClick={e => this.setState({count: this.state.count + 6})}>
                     Afficher plus de résultat
-                </Button>
+                </Button> */}
 
-            </div>
+            </>
         )
     }
 }

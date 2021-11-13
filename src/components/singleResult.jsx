@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Card } from 'antd'
+import { PlusCircleOutlined } from '@ant-design/icons'
 class SingleResult extends Component {
     render() {
         return (
@@ -7,10 +8,18 @@ class SingleResult extends Component {
                 hoverable
                 style={{ 
                     width: 200,
-                    height: 300,
+                    height: 350,
                     margin: 10
                 }}
                 cover={<img src={this.props.picture} />}
+                actions={[
+                    <PlusCircleOutlined onClick={e => this.props.addSong(
+                        {
+                            title: this.props.song,
+                            price: this.props.price,
+                            hello: "world"
+                        })} />
+                ]}
             >
                 <Card.Meta title={this.props.song} description={this.props.singer}/>
             </Card>

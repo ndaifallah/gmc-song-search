@@ -1,35 +1,26 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 
-import Search from './components/search';
-import Result from './components/result';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Checkout from './components/checkout';
+import SearchContainer from './components/searchContainer';
+import AboutMe from './components/aboutme';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-    }
-  }
-
-  dataCallback = (d) => {
-    this.setState({
-      data: d.results
-    })
-  }
+  
 
   render(){
     return (
-      <div className="App" style={{
-        textAlign: 'center',
-      }}>
-        <Search callbackFetch={this.dataCallback}/>
-        <br/>
-        <br/>
-        <br/>
-        <Result data={this.state.data} />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={SearchContainer}>
+          </Route>
+
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/aboutme" component={AboutMe} />
+        </Switch>
+      </Router>
         
-      </div>
     );
   }
 }
