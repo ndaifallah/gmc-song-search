@@ -29,9 +29,9 @@ class Result extends Component {
                 }}>
                     {this.props.data.map((el, idx) => idx < this.state.count ? <SingleResult price={el.trackPrice} song={el.trackName} singer={el.artistName} picture={el.artworkUrl100} addSong={this.addSong}/> : <></>)}
                 </div>
-                {/* <Button type="link" style={{marginBottom: 50}} onClick={e => this.setState({count: this.state.count + 6})}>
+                { <Button type="link" style={{marginBottom: 50}} onClick={e => this.setState({count: this.state.count + 6})}>
                     Afficher plus de résultat
-                </Button> */}
+                </Button> }
 
             </>
         )

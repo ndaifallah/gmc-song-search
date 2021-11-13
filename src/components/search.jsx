@@ -1,23 +1,31 @@
 import React, { Component } from 'react'
-import { Input, Button } from 'antd';
+import { Input, Button } from 'antd'
 import { AppleFilled } from "@ant-design/icons"
+import { connect } from 'react-redux'
 
 class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
             term: "",
-            is_loading: false
+            
         }
     }
 
     onClickSeach = async (e) => {
         try{
+             let dispatch = this.props.dispatch
             let value = this.state.term;
-            this.setState({ is_loading: true});
+            dispatch({
+                type:"loading", 
+                moh:true})
+           
             let resp = await fetch(`https://itunes.apple.com/search?term=${value}`);
             let data = await resp.json();
-            this.setState({ is_loading: false });
+           
+            dispatch({
+                type:"loading2", 
+                mo:false})
             this.props.callbackFetch(data);
         }catch(e){
             console.log(e);
@@ -40,19 +48,28 @@ class Search extends Component {
                 <br/>
                 <br/>
                  <Button 
-                    onClick={e => this.onClickSeach(e)} 
+                    onClick={e => {
+                        this.onClickSeach(e) 
+                       } }
                     type="primary" 
                     shape="round" 
                     icon={<AppleFilled />} 
                     size="large" 
                     style={{width: 300}} 
-                    loading={this.state.is_loading}>
+                    loading={this.props.lo}
+                    >
                 Search my song
                 </Button>
             </div>
         )
     }
 }
+const mapStateToProps = (state)=>{
+   
+    return {
+    lo:state.looading
+    
+    }
+    }
 
-
-export default Search;
+    export default connect(mapStateToProps, null)(Search)
