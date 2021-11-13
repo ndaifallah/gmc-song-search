@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Input, Button } from 'antd';
 import { AppleFilled } from "@ant-design/icons"
+import { connect } from 'react-redux';
 
 class Search extends Component {
     constructor(props) {
@@ -13,11 +14,20 @@ class Search extends Component {
 
     onClickSeach = async (e) => {
         try{
+            let dispatch = this.props.dispatch;
             let value = this.state.term;
             this.setState({ is_loading: true});
+            dispatch({ 
+                type: "set_loading",
+                is_loading: true
+            });
             let resp = await fetch(`https://itunes.apple.com/search?term=${value}`);
             let data = await resp.json();
             this.setState({ is_loading: false });
+            dispatch({
+                type: "set_loading",
+                is_loading: false
+            })
             this.props.callbackFetch(data);
         }catch(e){
             console.log(e);
@@ -25,6 +35,7 @@ class Search extends Component {
     }
 
     render() {
+        console.log("------", this.props)
         return (
             <div style={{
                 display: "flex",
@@ -46,7 +57,7 @@ class Search extends Component {
                     icon={<AppleFilled />} 
                     size="large" 
                     style={{width: 300}} 
-                    loading={this.state.is_loading}>
+                    loading={this.props.nimporte_quoi}>
                 Search my song
                 </Button>
             </div>
@@ -54,5 +65,9 @@ class Search extends Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    // My prop is_loading on lui affecte le state (loading) depuis notre state global
+    nimporte_quoi: state.loading
+})
 
-export default Search;
+export default connect(mapStateToProps, null) (Search);

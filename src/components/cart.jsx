@@ -18,7 +18,7 @@ class Cart extends Component {
         return total;
     }
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         return(<div style={{
             display: 'flex',
             flexDirection: 'row',

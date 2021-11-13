@@ -12,7 +12,7 @@ class Result extends Component {
     }
 
     addSong = (song) => {
-        console.log('Adding song: ', song)
+        // console.log('Adding song: ', song)
         this.props.addSong(song);
     }
     
