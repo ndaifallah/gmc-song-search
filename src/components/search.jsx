@@ -12,12 +12,16 @@ class Search extends Component {
   }
 
   onClickSeach = async (e) => {
-    let value = this.state.term;
-    this.setState({ is_loading: true });
-    let resp = await fetch(`https://itunes.apple.com/search?term=${value}`);
-    let data = await resp.json();
-    this.setState({ is_loading: false });
-    this.props.callbackFetch(data);
+    try {
+      let value = this.state.term;
+      this.setState({ is_loading: true });
+      let resp = await fetch(`https://itunes.apple.com/search?term=${value}`);
+      let data = await resp.json();
+      this.setState({ is_loading: false });
+      this.props.callbackFetch(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   render() {

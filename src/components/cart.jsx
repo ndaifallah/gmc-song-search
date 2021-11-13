@@ -23,7 +23,14 @@ class Cart extends Component {
           ))}
         </ul>
         <h2>Total:{this.props.panier.reduce((a, el) => el.price + a, 0)} </h2>
-        <Button onClick= >Checkout</Button>
+        <Button
+          onClick={(e) => {
+            console.log(this.props);
+            this.props.history.push("/checkout", { panier: this.props.panier });
+          }}
+        >
+          Checkout
+        </Button>
       </div>
     );
   }
